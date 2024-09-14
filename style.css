@@ -532,6 +532,8 @@ button:focus {
 	margin: 5px 5px;
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
+	position: relative; /* ou absolute, dependendo do comportamento desejado */
+	z-index: 9999; /* Coloca o item à frente de outros */
 	
 }
 
@@ -544,6 +546,8 @@ button:focus {
 	letter-spacing: 1px;
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
+	position: relative; /* ou absolute, dependendo do comportamento desejado */
+	z-index: 9999; /* Coloca o item à frente de outros */
 }
 
 .mu-resume-btn:hover,
