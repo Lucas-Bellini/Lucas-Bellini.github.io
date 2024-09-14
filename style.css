@@ -131,7 +131,7 @@ kbd {
 	background-color: #ddd;
 	padding: 4px 6px;
 	border-radius: 2px;
-	color: ;
+	
 }
 
 address {
@@ -1393,24 +1393,65 @@ button:focus {
 }
 
 .language-switcher {
-	position: fixed; /* ou fixed, dependendo do layout */
-	top: 5px; /* ajuste conforme necessário */
-	right: 10px; /* ajuste conforme necessário */
-	display: flex;
-	gap: 5px; /* espaço entre os botões */
-  }
-  
-  .lang-btn {
-	background: none;
-	border: none;
-	cursor: pointer;
-  }
-  
-  .lang-btn img {
-	width: 24px; /* ajuste conforme necessário */
-	height: 24px; /* ajuste conforme necessário */
-  }
-  
-  .lang-btn img:hover {
-	opacity: 0.8; /* efeito de hover */
-  }
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 1000; /* para garantir que os botões fiquem sempre visíveis */
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lang-btn img {
+    width: 24px; /* tamanho dos ícones */
+    height: 24px;
+}
+
+.lang-btn img:hover {
+    opacity: 0.8; /* efeito de hover */
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        top: 10px; /* Pode ajustar conforme necessário */
+        right: 0;
+        left: 0;
+        justify-content: center; /* Centraliza horizontalmente */
+    }
+
+    .lang-btn img {
+        width: 20px; /* diminui os ícones em telas menores */
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-switcher {
+        top: 15px; /* ajusta a posição superior em telas muito pequenas */
+        right: 0;
+        left: 0;
+        justify-content: center; /* centraliza os botões horizontalmente */
+        gap: 10px; /* ajusta o espaçamento entre os botões */
+    }
+
+    .lang-btn img {
+        width: 18px; /* diminui ainda mais os ícones em telas muito pequenas */
+        height: 18px;
+    }
+}
+
+
+.email-link {
+    color: inherit; /* Mantém a cor do texto original */
+    text-decoration: none;
+}
+
+.email-link:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    opacity: 0.8;
+}
