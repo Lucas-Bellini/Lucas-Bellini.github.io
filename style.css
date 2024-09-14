@@ -209,7 +209,10 @@ button:focus {
 	padding: 12px 35px;
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
+	position: relative; /* Ou absolute, se for necessário */
+	z-index: 9999; /* Garante que o botão fique à frente */
 }
+
 
 .mu-primary-btn:hover,
 .mu-primary-btn:focus {
@@ -1177,10 +1180,12 @@ button:focus {
 @media (max-width: 767px) {
 	.navbar-default .navbar-toggle {
 		border-color: #fff;
+		position: relative; /* ou absolute, dependendo do comportamento desejado */
+		z-index: 9999; /* Coloca o item à frente de outros */
 	}
 
 	.navbar-default .navbar-toggle:hover,
-	.navbar-default .navbar-toggle:focus{
+	.navbar-default .navbar-toggle:focus {
 		background-color: transparent;
 	}
 
@@ -1190,9 +1195,11 @@ button:focus {
 
 	.navbar-default .navbar-collapse, 
 	.navbar-default .navbar-form {
-		background-color: rgba(0,0,0,0.8);
+		background-color: rgba(0, 0, 0, 0.8);
 		text-align: center;
 	}
+}
+
 
 	.navbar-default .mu-menu li a {
 		display: inline-block;
@@ -1216,7 +1223,7 @@ button:focus {
 	}
 	
 		
-}
+
 
 
 @media (max-width: 640px){
@@ -1444,7 +1451,6 @@ button:focus {
         height: 18px;
     }
 }
-
 
 .email-link {
     color: inherit; /* Mantém a cor do texto original */
