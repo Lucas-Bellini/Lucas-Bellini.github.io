@@ -59,34 +59,55 @@
 	/*  3. SKILL PROGRESS BAR
 	/* ----------------------------------------------------------- */
 
-		$('.mu-skill-progress-bar').appear(function() {
+	$('.mu-skill-progress-bar').appear(function() {
 
-		 	$('.mu-html5-bar').LineProgressbar({
-				percentage: 95,
-				triggerOnce: true
-			});
-
-			$('.mu-css-bar').LineProgressbar({
-				percentage: 90,
-				triggerOnce: true
-			});
-
-			$('.mu-photoshop-bar').LineProgressbar({
-				percentage: 85,
-				triggerOnce: true
-			});
-
-			$('.mu-wordpress-bar').LineProgressbar({
-				percentage: 80,
-				triggerOnce: true
-			});
-
-			$('.mu-jquery-bar').LineProgressbar({
-				percentage: 55,
-				triggerOnce: true
-			});
-
+		$('.mu-html5-bar').LineProgressbar({
+			percentage: 100,
+			triggerOnce: true,
+			fillBackgroundColor: '#000', // Cor da barra de progresso, pode alterar conforme necessário
+			radius: '0px',
+			height: '10px',
+			ShowProgressCount: false // Oculta o valor percentual
 		});
+	
+		$('.mu-css-bar').LineProgressbar({
+			percentage: 100,
+			triggerOnce: true,
+			fillBackgroundColor: '#000',
+			radius: '0px',
+			height: '10px',
+			ShowProgressCount: false // Oculta o valor percentual
+		});
+	
+		$('.mu-photoshop-bar').LineProgressbar({
+			percentage: 100,
+			triggerOnce: true,
+			fillBackgroundColor: '#000',
+			radius: '0px',
+			height: '10px',
+			ShowProgressCount: false // Oculta o valor percentual
+		});
+	
+		$('.mu-wordpress-bar').LineProgressbar({
+			percentage: 100,
+			triggerOnce: true,
+			fillBackgroundColor: '#000',
+			radius: '0px',
+			height: '10px',
+			ShowProgressCount: false // Oculta o valor percentual
+		});
+	
+		$('.mu-jquery-bar').LineProgressbar({
+			percentage: 100,
+			triggerOnce: true,
+			fillBackgroundColor: '#000',
+			radius: '0px',
+			height: '10px',
+			ShowProgressCount: false // Oculta o valor percentual
+		});
+	
+	});
+	
 
 
 
