@@ -197,6 +197,65 @@
 		</section>
 		<!-- End About -->
 
+		<!-- Start Question Section -->
+<section id="ai-question-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="ai-question-area">
+
+                    <!-- Question Header -->
+                    <div class="ai-question-header">
+                        <h2 class="ai-heading-title">Faça sua Pergunta</h2>
+                        <span class="ai-header-dot"></span>
+                        <p>Digite abaixo sua pergunta sobre meu currículo ou projetos. As respostas serão geradas automaticamente.</p>
+                    </div>
+
+                    <!-- AI Response Area -->
+                    <div class="ai-response-area">
+                        <h4></h4>
+                        <div class="ai-response-box">
+                            <p id="ai-response-text">A resposta será exibida aqui após a pergunta ser enviada.</p>
+                        </div>
+                    </div>
+
+                    <!-- Question Input Area -->
+                    <div class="ai-question-content">
+                        <textarea id="user-question" placeholder="Digite sua pergunta aqui..." rows="4"></textarea>
+                        <button class="ai-submit-btn" onclick="submitQuestion()">Enviar Pergunta</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Envio da pergunta com o botão ou ao pressionar Enter
+    const textarea = document.getElementById('user-question');
+    textarea.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault(); // Previne a quebra de linha
+            submitQuestion();
+        }
+    });
+
+    function submitQuestion() {
+        const question = document.getElementById('user-question').value;
+        const responseText = document.getElementById('ai-response-text');
+        if (question.trim()) {
+            // Exemplo de resposta simulada
+            responseText.textContent = `Sua pergunta: "${question}" foi enviada! A resposta da IA aparecerá aqui em breve.`;
+            document.getElementById('user-question').value = ''; // Limpa o campo de pergunta
+        } else {
+            responseText.textContent = 'Por favor, digite uma pergunta antes de enviar.';
+        }
+    }
+</script>
+
+
+
 		<!-- Start Service -->
 		<section id="mu-service">
 			<div class="container">
@@ -501,7 +560,7 @@
 	<footer id="mu-footer" role="contentinfo">
 			<div class="container">
 				<div class="mu-footer-area">
-					<p class="mu-copy-right">&copy; Copyright <a rel="nofollow" href="http://markups.io">markups.io</a>. All right reserved.</p>
+					<p class="mu-copy-right">&copy; Copyright <a rel="nofollow" href="#">lucasbellini</a>. All right reserved.</p>
 				</div>
 			</div>
 
