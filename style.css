@@ -556,6 +556,144 @@ button:focus {
 }
 
 
+
+/* Section Styling */
+#ai-question-section {
+    width: 100%;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    overflow: hidden; /* Previne que o conteúdo saia da seção */
+}
+
+.ai-question-area {
+    text-align: center;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto; /* Centraliza o conteúdo */
+    position: relative; /* Garante que fique dentro da seção */
+}
+
+.ai-question-header {
+    margin-bottom: 30px;
+}
+
+.ai-question-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.ai-question-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+.ai-header-dot {
+    width: 50px;
+    height: 4px;
+    background-color: #339999;
+    display: block;
+    margin: 10px auto;
+}
+
+/* AI Response Area Styling */
+.ai-response-area {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.ai-response-area h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.ai-response-box {
+    padding: 20px;
+    background-color: #339999; /* Cor de fundo da caixa de resposta */
+    border-radius: 5px;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    color: white; /* Cor do texto em branco */
+}
+
+#ai-response-text {
+    color: white; /* Texto em branco */
+    font-size: 14px;
+}
+
+/* Question Input Area Styling */
+.ai-question-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user-question {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.ai-submit-btn {
+    background-color: #339999;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ai-submit-btn:hover {
+    background-color: #256e6e;
+}
+
+/* Responsiveness for mobile */
+@media only screen and (max-width: 768px) {
+    .ai-question-area {
+        padding: 20px;
+        max-width: 100%; /* Garante que não ultrapasse a tela */
+        margin: 0 10px; /* Adiciona espaçamento lateral para não tocar nas bordas da tela */
+    }
+
+    #user-question {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .ai-submit-btn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 16px;
+    }
+
+    .ai-response-box {
+        font-size: 14px;
+    }
+
+    .ai-question-header h2 {
+        font-size: 20px;
+    }
+
+    .ai-question-header p {
+        font-size: 14px;
+    }
+
+    .ai-response-area h4 {
+        font-size: 16px;
+    }
+}
+
+
+
 /*--------------------*/
 /* SERVICE */
 /*--------------------*/
