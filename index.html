@@ -232,6 +232,21 @@
 </section>
 
 <script>
+	// Função que simula o efeito de digitação
+    function typeText(element, text, speed = 50) {
+        let i = 0;
+        element.textContent = '';  // Limpa o conteúdo anterior
+
+        function type() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);  // Chama a próxima letra após um pequeno intervalo
+            }
+        }
+
+        type();  // Inicia a função de digitação
+    }
     async function submitQuestion() {
         const question = document.getElementById('user-question').value;
         const responseText = document.getElementById('ai-response-text');
