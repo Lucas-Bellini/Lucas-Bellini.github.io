@@ -1,9 +1,8 @@
 {
-    "name": "seu-projeto",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "dependencies": {
-      "openai": "^3.0.0"  
-    }
+  "name": "nome-do-seu-projeto",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "openai": "^3.2.1" 
   }
+}
