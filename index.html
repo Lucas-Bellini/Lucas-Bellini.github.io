@@ -221,8 +221,9 @@
 
                     <!-- Question Input Area -->
                     <div class="ai-question-content">
-                        <textarea id="user-question" placeholder="Digite sua pergunta aqui..." rows="4"></textarea>
+                        <textarea id="user-question" placeholder="Pergunte sobre mim, Ex.1: 'Quais foram seus projetos?'; Ex.2: 'Qual seria sua pretensão salarial?'." rows="4"></textarea>
                         <button class="ai-submit-btn" onclick="submitQuestion()">Enviar Pergunta</button>
+			<button id="stop-button" class="ai-stop-btn" style="display:none;">Parar</button>
                     </div>
 
                 </div>
@@ -232,24 +233,47 @@
 </section>
 
 <script>
+    let typingInterval;  // Variável para armazenar o intervalo de digitação
+    let isTyping = false;  // Variável de controle para saber se a IA está "digitando"
+
     // Função que simula o efeito de digitação
-    function typeText(element, text, speed = 90) {
+    function typeText(element, text, speed = 140) {
         let i = 0;
         element.textContent = '';  // Limpa o conteúdo anterior
 
+        // Habilita o botão "Parar" e desativa a caixa de perguntas enquanto está digitando
+        document.getElementById('user-question').disabled = true;
+        document.getElementById('stop-button').style.display = 'inline';
+        isTyping = true;
+
+        // Função que digita cada letra
         function type() {
             if (i < text.length) {
                 element.textContent += text.charAt(i);
                 i++;
-                setTimeout(type, speed);  // Chama a próxima letra após um pequeno intervalo
+                typingInterval = setTimeout(type, speed);  // Chama a próxima letra após um pequeno intervalo
+            } else {
+                stopTyping();  // Finaliza o efeito de digitação quando terminar
             }
         }
 
         type();  // Inicia a função de digitação
     }
 
+    // Função para parar a digitação
+    function stopTyping() {
+        clearTimeout(typingInterval);  // Para o intervalo de digitação
+        isTyping = false;
+
+        // Reativa a caixa de perguntas e esconde o botão "Parar"
+        document.getElementById('user-question').disabled = false;
+        document.getElementById('stop-button').style.display = 'none';
+    }
+
     // Função que envia a pergunta para a API e mostra a resposta aos poucos
     async function submitQuestion() {
+        if (isTyping) return;  // Evita que uma nova pergunta seja enviada enquanto está digitando
+
         const question = document.getElementById('user-question').value;
         const responseText = document.getElementById('ai-response-text');
         
@@ -261,7 +285,7 @@
         responseText.textContent = `Sua pergunta: "${question}" foi enviada! A resposta da IA aparecerá aqui em breve.`;
 
         try {
-            const response = await fetch('https://lucas-bellini-github-io.vercel.app/api/ask', {  // Substitua pela URL real do seu projeto no Vercel
+            const response = await fetch('https://seu-projeto.vercel.app/api/ask', {  // Substitua pela URL real do seu projeto no Vercel
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -287,6 +311,11 @@
             event.preventDefault();  // Previne a quebra de linha
             submitQuestion();
         }
+    });
+
+    // Botão para parar a resposta
+    document.getElementById('stop-button').addEventListener('click', function() {
+        stopTyping();
     });
 </script>
 
