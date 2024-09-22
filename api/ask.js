@@ -16,45 +16,23 @@ async function readDocxFile(filePath) {
   return text;
 }
 
-// Função para detectar o idioma (simplesmente verificando se tem mais palavras comuns em português ou inglês)
-function detectLanguage(question) {
-  const commonPortugueseWords = ["é", "de", "com", "que", "como", "por"];
-  const commonEnglishWords = ["is", "the", "with", "what", "how", "for"];
-  
-  const portugueseCount = commonPortugueseWords.filter(word => question.includes(word)).length;
-  const englishCount = commonEnglishWords.filter(word => question.includes(word)).length;
-  
-  return portugueseCount > englishCount ? "portuguese" : "english";
-}
-
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { question } = req.body;
 
     try {
-      // Caminho para o arquivo .docx
+      // Caminho para o arquivo .docx (certifique-se de que o arquivo está na pasta correta)
       const filePath = path.join(process.cwd(), "Lucasbel.docx");
 
       // Lê o arquivo e extrai o texto
       const resumeText = await readDocxFile(filePath);
 
-      // Detecta o idioma da pergunta
-      const language = detectLanguage(question);
-
-      // Cria o contexto adequado baseado no idioma detectado
-      let systemMessage;
-      if (language === "portuguese") {
-        systemMessage = "Você é um assistente que responde com base no currículo de Lucas Bellini em português.";
-      } else {
-        systemMessage = "You are an assistant that responds based on Lucas Bellini's resume in English.";
-      }
-
       // Cria o prompt incluindo o texto do currículo e a pergunta do usuário
       const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
-          { role: "system", content: systemMessage },
-          { role: "system", content: `Here is the resume:\n\n${resumeText}` },  // Adiciona o texto do currículo como contexto
+          { role: "system", content: "Você é um assistente útil que responde com base no currículo de Lucas Bellini." },
+          { role: "system", content: `Aqui está o currículo:\n\n${resumeText}` },  // Adiciona o texto do currículo como contexto
           { role: "user", content: question }
         ],
       });
