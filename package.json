@@ -1,8 +1,9 @@
 {
-  "name": "nome-do-seu-projeto",
+  "name": "seu-projeto",
   "version": "1.0.0",
   "license": "MIT",
+  "type": "module",  
   "dependencies": {
-    "openai": "^3.2.1" 
+    "openai": "^3.2.1"
   }
 }
