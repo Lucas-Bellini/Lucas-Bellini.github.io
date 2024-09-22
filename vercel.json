@@ -11,11 +11,5 @@
       "src": "/api/ask",
       "dest": "/api/ask.js"
     }
-  ],
-  "functions": {
-    "api/ask.js": {
-      "memory": 1024,  
-      "maxDuration": 10  
-    }
-  }
+  ]
 }
