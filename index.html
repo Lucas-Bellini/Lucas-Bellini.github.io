@@ -208,14 +208,14 @@
                     <div class="ai-question-header">
                         <h2 class="ai-heading-title">Faça sua Pergunta</h2>
                         <span class="ai-header-dot"></span>
-                        <p>Digite abaixo sua pergunta sobre meu currículo ou projetos. As respostas serão geradas automaticamente.</p>
+                        <p>Digite abaixo sua pergunta sobre meu currículo ou projetos. A minha IA irá responder sua dúvida.</p>
                     </div>
 
                     <!-- AI Response Area -->
                     <div class="ai-response-area">
                         <h4></h4>
                         <div class="ai-response-box">
-                            <p id="ai-response-text">A resposta será exibida aqui após a pergunta ser enviada.</p>
+                            <p id="ai-response-text">Olá! Eu sou a IA do Lucas Bellini(e também sou um projeto dele). Pode me fazer qualquer pergunta sobre o Lucas que irei te dar a melhor resposta possível baseada no histórico profissional dele. Fique a vontade!</p>
                         </div>
                     </div>
 
@@ -233,7 +233,7 @@
 
 <script>
     // Função que simula o efeito de digitação
-    function typeText(element, text, speed = 50) {
+    function typeText(element, text, speed = 90) {
         let i = 0;
         element.textContent = '';  // Limpa o conteúdo anterior
 
@@ -254,7 +254,7 @@
         const responseText = document.getElementById('ai-response-text');
         
         if (!question.trim()) {
-            responseText.textContent = 'Por favor, digite uma pergunta.';
+            responseText.textContent = 'Pergunte sobre mim, Ex.1: "Quais foram seus projetos?"; Ex.2: "Qual seria sua pretensão salarial?".';
             return;
         }
 
