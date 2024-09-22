@@ -1,7 +1,4 @@
-const { Configuration, OpenAIApi } = require("openai");
-const fs = require('fs');
-const path = require('path');
-
+import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -12,18 +9,17 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const { question } = req.body;
 
-    // Carregue o arquivo .docx com suas informações
-    const docPath = path.join(process.cwd(), 'data', 'Lucasbel.docx');
-    const docContent = fs.readFileSync(docPath, 'utf-8');
-
     try {
-      const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: `Você irá responder perguntas de recrutadores sobre mim. Baseado no seguinte currículo:\n\n${docContent}\n\nResponda à seguinte pergunta:\n\n${question}. E se ela for feita em ingles, traduza o texto para o ingles.`,
-        max_tokens: 500,
+      const response = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",  // Usando o modelo GPT-3.5
+        messages: [
+          { role: "system", content: "Você é um assistente útil que responde com base no currículo de Lucas Bellini." },
+          { role: "user", content: question }
+        ],
       });
 
-      res.status(200).json({ answer: response.data.choices[0].text.trim() });
+      // Retorna a resposta do chat
+      res.status(200).json({ answer: response.data.choices[0].message.content.trim() });
     } catch (error) {
       res.status(500).json({ error: 'Erro ao processar a pergunta' });
     }
