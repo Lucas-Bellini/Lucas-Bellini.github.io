@@ -14,8 +14,8 @@
   ],
   "functions": {
     "api/ask.js": {
-      "memory": 1024,  // Ajuste de memória, se necessário
-      "maxDuration": 10  // Ajuste de tempo máximo de execução
+      "memory": 1024,  
+      "maxDuration": 10  
     }
   }
 }
