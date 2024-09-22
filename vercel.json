@@ -1,14 +1,21 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "api/ask.js",
-        "use": "@vercel/node"
-      }
-    ],
-    
-
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/ask.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/ask",
+      "dest": "/api/ask.js"
+    }
+  ],
+  "functions": {
+    "api/ask.js": {
+      "memory": 1024,  // Ajuste de memória, se necessário
+      "maxDuration": 10  // Ajuste de tempo máximo de execução
+    }
   }
+}
