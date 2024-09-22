@@ -232,41 +232,38 @@
 </section>
 
 <script>
-   async function submitQuestion() {
-    const question = document.getElementById('user-question').value;
-    const responseText = document.getElementById('ai-response-text');
-    
-    if (!question.trim()) {
-        responseText.textContent = 'Por favor, digite uma pergunta.';
-        return;
-    }
-
-    responseText.textContent = `Your question: "${question}" has been sent! The AI answer will appear here soon.`;
-    
-    try {
-        const response = await fetch('https://lucas-bellini-github-io.vercel.app/api/ask', {  // Substitua pela URL real do seu projeto no Vercel
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ question })
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            responseText.textContent = data.answer ? data.answer : 'Erro ao receber resposta da IA.';
-        } else {
-            responseText.textContent = 'Erro ao se comunicar com a API.';
+    async function submitQuestion() {
+        const question = document.getElementById('user-question').value;
+        const responseText = document.getElementById('ai-response-text');
+        
+        if (!question.trim()) {
+            responseText.textContent = 'Por favor, digite uma pergunta.';
+            return;
         }
-    } catch (error) {
-        responseText.textContent = 'Ocorreu um erro ao enviar a pergunta. Tente novamente mais tarde.';
+
+        responseText.textContent = `Sua pergunta: "${question}" foi enviada! A resposta da IA aparecerá aqui em breve.`;
+
+        try {
+            const response = await fetch('https://lucas-bellini-github-io.vercel.app/api/ask', {  // Substitua pela URL real do seu projeto no Vercel
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                responseText.textContent = data.answer ? data.answer : 'Erro ao receber resposta da IA.';
+            } else {
+                responseText.textContent = 'Erro ao se comunicar com a API.';
+            }
+        } catch (error) {
+            responseText.textContent = 'Ocorreu um erro ao enviar a pergunta. Tente novamente mais tarde.';
+        }
     }
-}
 
-</script>
-
-<script>
-    // Envio da pergunta com o botão ou ao pressionar Enter
+    // Adiciona evento para envio da pergunta ao pressionar Enter
     const textarea = document.getElementById('user-question');
     textarea.addEventListener('keypress', function(event) {
         if (event.key === 'Enter' && !event.shiftKey) {
@@ -274,19 +271,8 @@
             submitQuestion();
         }
     });
-
-    function submitQuestion() {
-        const question = document.getElementById('user-question').value;
-        const responseText = document.getElementById('ai-response-text');
-        if (question.trim()) {
-            // Exemplo de resposta simulada
-            responseText.textContent = `Sua pergunta: "${question}" foi enviada! A resposta da IA aparecerá aqui em breve.`;
-            document.getElementById('user-question').value = ''; // Limpa o campo de pergunta
-        } else {
-            responseText.textContent = 'Por favor, digite uma pergunta antes de enviar.';
-        }
-    }
 </script>
+
 
 
 
