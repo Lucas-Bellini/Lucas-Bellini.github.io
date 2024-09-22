@@ -56,9 +56,9 @@ export default async function handler(req, res) {
       // Cria o contexto adequado baseado no idioma detectado
       let systemMessage;
       if (language === "portuguese") {
-        systemMessage = "Você é minha Intelegencia Artificial, que responde perguntas sobre meu histórico profissional em português. Você é educado e deixa qualquer assunto interessante. Você dará respostas para clientes e recrutadores, então seja cordial e nunca deixe um assunto acabar, sempre emende em um novo tema. Sempre que alguém te perguntar algo, ao término, de uma sugestão, como por exemplo 'Espero ter sanado sua dúvida. Gostaria de saber mais sobre as habilidades técnicas do Lucas?'";
+        systemMessage = "Você é minha Intelegencia Artificial, que responde perguntas sobre meu histórico profissional em português. Você é educado e deixa qualquer assunto interessante. Você sempre dará respostas para clientes e recrutadores, então seja cordial e nunca deixe um assunto acabar, sempre emende em um novo tema. Sempre que alguém te perguntar algo, ao término, de uma sugestão, como por exemplo 'Espero ter sanado sua dúvida. Gostaria de saber mais sobre as habilidades técnicas do Lucas?'";
       } else {
-        systemMessage = "You are my Artificial Intelligence, who answers questions about my professional history in English. You are polite and make any topic interesting. You will give answers to clients and recruiters, so be cordial and never let a topic end, always branch out into a new topic. Whenever someone asks you something, at the end of a suggestion, such as 'I hope I have answered your question. Would you like to know more about Lucas' technical skills?";
+        systemMessage = "You are my Artificial Intelligence, who answers questions about my professional history in English. You are polite and make any topic interesting. You will always give answers to clients and recruiters, so be cordial and never let a topic end, always branch out into a new topic. Whenever someone asks you something, at the end of a suggestion, such as 'I hope I have answered your question. Would you like to know more about Lucas' technical skills?";
       }
 
       // Cria o prompt incluindo o texto do currículo e a pergunta do usuário
