@@ -232,7 +232,7 @@
 </section>
 
 <script>
-	// Função que simula o efeito de digitação
+    // Função que simula o efeito de digitação
     function typeText(element, text, speed = 50) {
         let i = 0;
         element.textContent = '';  // Limpa o conteúdo anterior
@@ -247,6 +247,8 @@
 
         type();  // Inicia a função de digitação
     }
+
+    // Função que envia a pergunta para a API e mostra a resposta aos poucos
     async function submitQuestion() {
         const question = document.getElementById('user-question').value;
         const responseText = document.getElementById('ai-response-text');
@@ -269,12 +271,12 @@
 
             if (response.ok) {
                 const data = await response.json();
-                responseText.textContent = data.answer ? data.answer : 'Erro ao receber resposta da IA.';
+                typeText(responseText, data.answer ? data.answer : 'Erro ao receber resposta da IA.', 50);  // Exibe a resposta aos poucos
             } else {
-                responseText.textContent = 'Erro ao se comunicar com a API.';
+                typeText(responseText, 'Erro ao se comunicar com a API.', 50);  // Exibe a mensagem de erro aos poucos
             }
         } catch (error) {
-            responseText.textContent = 'Ocorreu um erro ao enviar a pergunta. Tente novamente mais tarde.';
+            typeText(responseText, 'Ocorreu um erro ao enviar a pergunta. Tente novamente mais tarde.', 50);  // Exibe a mensagem de erro aos poucos
         }
     }
 
@@ -282,12 +284,11 @@
     const textarea = document.getElementById('user-question');
     textarea.addEventListener('keypress', function(event) {
         if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault(); // Previne a quebra de linha
+            event.preventDefault();  // Previne a quebra de linha
             submitQuestion();
         }
     });
 </script>
-
 
 
 
