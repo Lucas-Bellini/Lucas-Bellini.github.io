@@ -11,5 +11,9 @@
         "src": "/api/ask",
         "dest": "/api/ask.js"
       }
+    ],
+
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/" }
     ]
   }
