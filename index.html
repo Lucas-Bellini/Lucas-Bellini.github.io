@@ -222,8 +222,10 @@
                     <!-- Question Input Area -->
                     <div class="ai-question-content">
                         <textarea id="user-question" placeholder="Pergunte sobre mim, Ex.1: 'Quais foram seus projetos?'; Ex.2: 'Qual seria sua pretensão salarial?'." rows="4"></textarea>
-                        <button class="ai-submit-btn" onclick="submitQuestion()">Enviar Pergunta</button>
-			<button id="stop-button" class="ai-stop-btn" style="display:none;">Parar</button>
+                        <div class="button-group">
+                            <button class="ai-submit-btn" onclick="submitQuestion()">Enviar Pergunta</button>
+                            <button id="stop-button" class="ai-stop-btn" style="display:none;">Parar</button> <!-- Botão para parar a resposta -->
+                        </div>
                     </div>
 
                 </div>
