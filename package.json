@@ -4,6 +4,7 @@
   "license": "MIT",
   "type": "module",  
   "dependencies": {
-    "openai": "^3.2.1"
+    "openai": "^3.2.1",
+    "mammoth": "^1.4.2"
   }
 }
