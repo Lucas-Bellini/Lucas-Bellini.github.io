@@ -206,15 +206,14 @@
                     <div class="ai-question-header">
                         <h2 class="ai-heading-title">Ask your question</h2>
                         <span class="ai-header-dot"></span>
-                        <p>Enter your question about my resume or projects below.</p>
+                        <p>Enter your question about my resume or projects below. My AI will answer your questions</p>
                     </div>
 
                     <!-- AI Response Area -->
                     <div class="ai-response-area">
                         <h4></h4>
                         <div class="ai-response-box">
-                            <p id="ai-response-text">
-								The answer will be displayed here after the question is submitted.</p>
+                            <p id="ai-response-text">Hello! I am Lucas Bellini's AI (and I am also his project). You can ask me any question about Lucas and I will give you the best possible answer based on his professional history. Feel free!</p>
                         </div>
                     </div>
 
@@ -232,7 +231,7 @@
 
 <script>
     // Função que simula o efeito de digitação
-    function typeText(element, text, speed = 50) {
+    function typeText(element, text, speed = 90) {
         let i = 0;
         element.textContent = '';  // Limpa o conteúdo anterior
 
@@ -253,11 +252,11 @@
         const responseText = document.getElementById('ai-response-text');
         
         if (!question.trim()) {
-            responseText.textContent = 'Por favor, digite uma pergunta.';
+            responseText.textContent = 'Ask about me, Ex.1: "What projects have you already done?"; Ex.2: "What would be your expected salary?".';
             return;
         }
 
-        responseText.textContent = `Sua pergunta: "${question}" foi enviada! A resposta da IA aparecerá aqui em breve.`;
+        responseText.textContent = `Your question: "${question}" has been sent! The AI's response will appear here soon.`;
 
         try {
             const response = await fetch('https://lucas-bellini-github-io.vercel.app/api/ask', {  // Substitua pela URL real do seu projeto no Vercel
