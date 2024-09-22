@@ -558,6 +558,7 @@ button:focus {
 
 
 /* Section Styling */
+/* Section Styling */
 #ai-question-section {
     width: 100%;
     padding: 50px 0;
@@ -627,10 +628,8 @@ button:focus {
 /* Question Input Area Styling */
 .ai-question-content {
     display: flex;
-    justify-content: center; /* Centraliza os botões */
+    flex-direction: column;
     align-items: center;
-    gap: 10px; /* Adiciona espaçamento entre os botões */
-    flex-wrap: wrap; /* Permite que os itens quebrem linha, caso necessário */
 }
 
 #user-question {
@@ -644,12 +643,23 @@ button:focus {
     color: #333;
 }
 
+/* Estilo dos botões */
+.button-group {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    gap: 10px; /* Espaço entre os botões */
+    margin-top: 10px;
+}
+
 .ai-submit-btn, .ai-stop-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
     padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 5px;
     transition: background-color 0.3s;
-    white-space: nowrap; /* Impede que o texto nos botões quebre em várias linhas */
+    white-space: nowrap;
 }
 
 .ai-submit-btn {
@@ -707,6 +717,7 @@ button:focus {
         font-size: 16px;
     }
 }
+
 
 
 
