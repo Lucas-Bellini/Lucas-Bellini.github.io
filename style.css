@@ -627,8 +627,10 @@ button:focus {
 /* Question Input Area Styling */
 .ai-question-content {
     display: flex;
-    flex-direction: column;
+    justify-content: center; /* Centraliza os botões */
     align-items: center;
+    gap: 10px; /* Adiciona espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha, caso necessário */
 }
 
 #user-question {
@@ -642,14 +644,18 @@ button:focus {
     color: #333;
 }
 
-.ai-submit-btn {
-    background-color: #339999;
-    color: white;
+.ai-submit-btn, .ai-stop-btn {
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    white-space: nowrap; /* Impede que o texto nos botões quebre em várias linhas */
+}
+
+.ai-submit-btn {
+    background-color: #339999;
+    color: white;
+    border: none;
 }
 
 .ai-submit-btn:hover {
@@ -660,11 +666,6 @@ button:focus {
     background-color: #f44336; /* Cor vermelha para indicar interrupção */
     color: white;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 10px;
-    display: inline-block;
 }
 
 .ai-stop-btn:hover {
@@ -684,15 +685,10 @@ button:focus {
         max-width: 100%;
     }
 
-    .ai-submit-btn {
-        width: 100%;
-        padding: 12px 0;
-        font-size: 16px;
-    }
-    .ai-stop-btn {
-        width: 100%;
-        padding: 12px 0;
-        font-size: 16px;
+    .ai-submit-btn, .ai-stop-btn {
+        width: auto; /* Impede que os botões fiquem com 100% da largura no mobile */
+        padding: 10px 15px; /* Reduz o padding para ficar mais adequado no mobile */
+        font-size: 14px;
     }	
 
     .ai-response-box {
