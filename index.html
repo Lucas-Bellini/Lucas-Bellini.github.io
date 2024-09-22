@@ -232,29 +232,37 @@
 </section>
 
 <script>
-    async function submitQuestion() {
-        const question = document.getElementById('user-question').value;
-        const responseText = document.getElementById('ai-response-text');
-        
-        if (!question.trim()) {
-            responseText.textContent = 'Por favor, digite uma pergunta.';
-            return;
-        }
-
-        try {
-            const response = await fetch('https://lucas-bellini-github-io.vercel.app/api/ask', { // Use o URL do seu projeto no Vercel
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ question })
-            });
-            const data = await response.json();
-            responseText.textContent = data.answer ? data.answer : 'Erro ao receber resposta.';
-        } catch (error) {
-            responseText.textContent = 'Ocorreu um erro ao enviar a pergunta.';
-        }
+   async function submitQuestion() {
+    const question = document.getElementById('user-question').value;
+    const responseText = document.getElementById('ai-response-text');
+    
+    if (!question.trim()) {
+        responseText.textContent = 'Por favor, digite uma pergunta.';
+        return;
     }
+
+    responseText.textContent = `Your question: "${question}" has been sent! The AI answer will appear here soon.`;
+    
+    try {
+        const response = await fetch('https://lucas-bellini-github-io.vercel.app/api/ask', {  // Substitua pela URL real do seu projeto no Vercel
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ question })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            responseText.textContent = data.answer ? data.answer : 'Erro ao receber resposta da IA.';
+        } else {
+            responseText.textContent = 'Erro ao se comunicar com a API.';
+        }
+    } catch (error) {
+        responseText.textContent = 'Ocorreu um erro ao enviar a pergunta. Tente novamente mais tarde.';
+    }
+}
+
 </script>
 
 <script>
