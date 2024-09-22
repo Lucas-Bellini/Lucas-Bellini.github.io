@@ -656,6 +656,21 @@ button:focus {
     background-color: #256e6e;
 }
 
+.ai-stop-btn {
+    background-color: #f44336; /* Cor vermelha para indicar interrupção */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.ai-stop-btn:hover {
+    background-color: #d32f2f;
+}
+
 /* Responsiveness for mobile */
 @media only screen and (max-width: 768px) {
     .ai-question-area {
@@ -674,6 +689,11 @@ button:focus {
         padding: 12px 0;
         font-size: 16px;
     }
+    .ai-stop-btn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 16px;
+    }	
 
     .ai-response-box {
         font-size: 14px;
